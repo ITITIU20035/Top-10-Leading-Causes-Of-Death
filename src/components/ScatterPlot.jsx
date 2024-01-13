@@ -9,6 +9,7 @@ const ScatterPlot = () => {
     const formattedData = Data({filePath});
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+    const blendMode = theme.palette.mode === 'dark' ? 'lighten' : 'multiply';
   return (
     <ResponsiveScatterPlot
       data={formattedData}
@@ -50,7 +51,7 @@ const ScatterPlot = () => {
       xFormat=">-.2f"
       yScale={{ type: 'linear', min: 0, max: 'auto' }}
       yFormat=">-.2f"
-      blendMode="multiply"
+      blendMode={blendMode}
       axisTop={null}
       axisRight={null}
       axisBottom={{
