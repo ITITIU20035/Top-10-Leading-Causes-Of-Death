@@ -5,11 +5,11 @@ import { useTheme } from '@mui/material';
 import { tokens } from '../theme';
 
 const ScatterPlot = ({isDashboard = false}) => {
-    const filePath ='./combined_data.csv';
-    const formattedData = Data({filePath});
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
-    const blendMode = theme.palette.mode === 'dark' ? 'lighten' : 'multiply';
+  const filePath ='./combined_data.csv';
+  const formattedData = Data({filePath});
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  const blendMode = theme.palette.mode === 'dark' ? 'lighten' : 'multiply';
   return (
     <ResponsiveScatterPlot
       data={formattedData}
@@ -96,6 +96,20 @@ const ScatterPlot = ({isDashboard = false}) => {
           ],
         },
       ]}
+      tooltip={({node}) => 
+      <div style={{
+        color: node.color,
+        background: '#333',
+        padding: '12px 16px'
+      }}>
+                        <strong>
+                            {node.serieId}
+                        </strong>
+                        <br />
+                        {`Year: ${parseInt(node.formattedX)}`}
+                        <br />
+                        {`Number of Deaths: ${parseInt(node.formattedY)}`}
+                    </div>}
     />
   );
 };

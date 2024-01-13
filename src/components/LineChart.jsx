@@ -64,7 +64,7 @@ const LineChart = ({isDashboard = false,rangeMax}) => {
             legend: 'Year',
             legendOffset: 36,
             legendPosition: 'middle',
-            tickValues: isDashboard ? [2000, 2019]: [2000, 2010, 2015, 2019],
+            tickValues: [2000, 2010, 2015, 2019],
         }}
         axisLeft={{
             tickSize: 5,

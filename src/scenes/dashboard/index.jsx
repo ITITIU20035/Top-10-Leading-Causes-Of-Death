@@ -21,7 +21,7 @@ const Dashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to our project" />
+        <Header title="DASHBOARD" subtitle="Top 10 Leading Causes Of Death (Data Provided By WHO)" />
         <Box>
           <Button
             sx={{
@@ -188,7 +188,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ padding: "30px 30px 0 30px" }}
           >
-            Scatter Plot 
+            Scatter Plot
           </Typography>
           <Box height="250px" mt="-20px" backgroundColor={"#363646"}>
             <ScatterPlot isDashboard={true} />
