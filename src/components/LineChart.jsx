@@ -1,90 +1,112 @@
-import React, { useState, useEffect,useMemo ,useRef} from 'react';
+import React, { useEffect, useState } from 'react';
+import { useTheme } from '@mui/material';
+import { tokens } from '../theme';
 import { ResponsiveLine } from '@nivo/line';
-import * as d3 from 'd3';
-import {colors, useTheme} from "@mui/material";
-import {tokens} from "../theme";
+import Data from './Data';
 
-const MARGIN = { top: 30, right: 30, bottom: 50, left: 50 };
-const data = d3.csv("../data/combined_data.csv");
-console.log(data);
-type DataPoint = { x: number; y: number };
-type LineChartProps = {
-  width: number;
-  height: number;
-  data: DataPoint[];
-};
-
-export const LineChart = ({ width, height, data }: LineChartProps) => {
-  // bounds = area inside the graph axis = calculated by substracting the margins
-  const axesRef = useRef(null);
-  const boundsWidth = width - MARGIN.right - MARGIN.left;
-  const boundsHeight = height - MARGIN.top - MARGIN.bottom;
-
-  // Y axis
-  const [min, max] = d3.extent(data, (d) => d.y);
-  const yScale = useMemo(() => {
-    return d3
-      .scaleLinear()
-      .domain([0, max || 0])
-      .range([boundsHeight, 0]);
-  }, [data, height]);
-
-  // X axis
-  const [xMin, xMax] = d3.extent(data, (d) => d.x);
-  const xScale = useMemo(() => {
-    return d3
-      .scaleLinear()
-      .domain([0, xMax || 0])
-      .range([0, boundsWidth]);
-  }, [data, width]);
-
-  // Render the X and Y axis using d3.js, not react
-  useEffect(() => {
-    const svgElement = d3.select(axesRef.current);
-    svgElement.selectAll("*").remove();
-    const xAxisGenerator = d3.axisBottom(xScale);
-    svgElement
-      .append("g")
-      .attr("transform", "translate(0," + boundsHeight + ")")
-      .call(xAxisGenerator);
-
-    const yAxisGenerator = d3.axisLeft(yScale);
-    svgElement.append("g").call(yAxisGenerator);
-  }, [xScale, yScale, boundsHeight]);
-
-  // Build the line
-  const lineBuilder = d3
-    .line<DataPoint>()
-    .x((d) => xScale(d.x))
-    .y((d) => yScale(d.y));
-  const linePath = lineBuilder(data);
-  if (!linePath) {
-    return null;
-  }
-
-  return (
-    <div>
-      <svg width={width} height={height}>
-        <g
-          width={boundsWidth}
-          height={boundsHeight}
-          transform={`translate(${[MARGIN.left, MARGIN.top].join(",")})`}
-        >
-          <path
-            d={linePath}
-            opacity={1}
-            stroke="#9a6fb0"
-            fill="none"
-            strokeWidth={2}
-          />
-        </g>
-        <g
-          width={boundsWidth}
-          height={boundsHeight}
-          ref={axesRef}
-          transform={`translate(${[MARGIN.left, MARGIN.top].join(",")})`}
-        />
-      </svg>
-    </div>
+const LineChart = ({isDashboard}) => {
+  const filePath ='./combined_data.csv';
+  const formattedData = Data({filePath});
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  return(
+  <ResponsiveLine
+        data={formattedData}
+        theme={{
+          axis:{
+            domain:{
+              line:{
+                stroke:colors.grey[100]
+              }
+            },
+            legend:{
+              text:{
+                fill: colors.grey[100]
+              }
+            },
+            ticks:{
+              lines:{
+                stroke: colors.grey[100],
+                strokeWidth: 1
+              },
+              text:{
+                fill: colors.grey[100]
+              }
+            }
+          },
+          legends:{
+            text:{
+              fill: colors.grey[100]
+            }
+          },
+          tooltip:{
+            container:{
+              color: colors.primary[500],
+            },
+          },
+        }}
+        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        xScale={{ type: 'point' }}
+        yScale={{
+            type: 'linear',
+            min: 'auto',
+            max: 'auto',
+            stacked: true,
+            reverse: false
+        }}
+        yFormat=" >-.2f"
+        axisTop={null}
+        axisRight={null}
+        axisBottom={{
+            tickSize: 5,
+            tickPadding: 5,
+            tickRotation: 0,
+            legend: 'Year',
+            legendOffset: 36,
+            legendPosition: 'middle'
+        }}
+        axisLeft={{
+            tickSize: 5,
+            tickPadding: 5,
+            tickRotation: 0,
+            legend: 'Deaths',
+            legendOffset: -40,
+            legendPosition: 'middle'
+        }}
+        pointSize={10}
+        pointColor={{ theme: 'background' }}
+        pointBorderWidth={2}
+        pointBorderColor={{ from: 'serieColor' }}
+        pointLabelYOffset={-12}
+        useMesh={true}
+        legends={[
+            {
+                anchor: 'bottom-right',
+                direction: 'column',
+                justify: false,
+                translateX: 100,
+                translateY: 0,
+                itemsSpacing: 0,
+                itemDirection: 'left-to-right',
+                itemWidth: 80,
+                itemHeight: 20,
+                itemOpacity: 0.75,
+                symbolSize: 12,
+                symbolShape: 'circle',
+                symbolBorderColor: 'rgba(0, 0, 0, .5)',
+                effects: [
+                    {
+                        on: 'hover',
+                        style: {
+                            itemBackground: 'rgba(0, 0, 0, .03)',
+                            itemOpacity: 1
+                        }
+                    }
+                ]
+            }
+        ]}
+  />
   );
 };
+
+export default LineChart;

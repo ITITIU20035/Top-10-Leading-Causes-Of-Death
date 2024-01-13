@@ -5,9 +5,9 @@ import { ColorModeContext, useMode } from "./theme";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
-import BarChart from "./components/BarChart";
-// import Dashboard from "./scenes/dashboard";
-// import Dashboard from "./scenes/dashboard";
+import Line from "./scenes/line";
+import Bar from "./scenes/bar";
+import Scatter from "./scenes/scatter";
 // import Dashboard from "./scenes/dashboard";
 // import Dashboard from "./scenes/dashboard";
 
@@ -23,9 +23,11 @@ function App() {
         <Sidebar/>
           <main className="content">
             <Topbar/>
-            <BarChart />
             <Routes>
               {/* <Route path="/" element={<Dashboard />} /> */}
+              <Route path="/line" element={<Line />} />
+              <Route path="/bar" element={<Bar />} />
+              <Route path="/scatter" element={<Scatter />} />
             </Routes>
           </main>
         </div>

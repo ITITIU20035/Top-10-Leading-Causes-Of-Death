@@ -184,15 +184,15 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Sunburst Chart"
-              to="/sunburst"
-              icon={<PieChartOutlineOutlinedIcon />}
+              title="Line Chart"
+              to="/line"
+              icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Line Chart"
-              to="/line"
+              title="Bar Chart"
+              to="/bar"
               icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
