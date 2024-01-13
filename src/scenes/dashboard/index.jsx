@@ -3,11 +3,11 @@ import { tokens } from "../../theme";
 import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import AccessibilityIcon from "@mui/icons-material/Accessibility";
-import PersonSearchIcon from "@mui/icons-material/PersonSearch";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import TrafficIcon from "@mui/icons-material/Traffic";
+import GroupRemoveIcon from '@mui/icons-material/GroupRemove';
+import MoodBadIcon from '@mui/icons-material/MoodBad';
+import AccessibleIcon from '@mui/icons-material/Accessible';
 import Header from "../../components/Header";
-import LineChart from "../../components/Line2";
+import LineChart from "../../components/LineChart";
 import GeographyChart from "../../components/GeographyChart";
 import ScatterPlot from "../../components/ScatterPlot";
 import StatBox from "../../components/StatBox";
@@ -45,7 +45,7 @@ const Dashboard = () => {
         gridAutoRows="140px"
         gap="20px"
       >
-        {/* ROW 1 */}
+        {/* ROW */}
         <Box
           gridColumn="span 3"
           backgroundColor="#363646"
@@ -54,10 +54,10 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="150K"
-            subtitle="Deaths/day"
-            progress="0.15"
-            increase="+1.5%"
+            title="~168.86"
+            subtitle="Highest Death rate per 100K population"
+            progress="0.2"
+            increase="Stroke (2010)"
             icon={
               <AccessibilityIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -73,12 +73,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="335M"
-            subtitle="New infections"
-            progress="0.21"
-            increase="+21%"
+            title="159K"
+            subtitle="Highest Fatality Count"
+            progress="1.0"
+            increase="Stroke (2019)"
             icon={
-              <PersonSearchIcon
+              <GroupRemoveIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -92,12 +92,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="0.0191%"
-            subtitle="Child mortality"
-            progress="0.5"
-            increase="-50%"
+            title="~3365"
+            subtitle="Highest DALYs rate Per 100K"
+            progress="0.7"
+            increase="Stroke (2015)"
             icon={
-              <PersonAddIcon
+              <MoodBadIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -111,12 +111,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="1.35M"
-            subtitle="Traffic accident"
-            progress="0.83"
-            increase="-17%"
+            title="3.24M"
+            subtitle="Highest DALY"
+            progress="1.0"
+            increase="Stroke (2019)"
             icon={
-              <TrafficIcon
+              <AccessibleIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -124,7 +124,7 @@ const Dashboard = () => {
         </Box>
 
         {/* ROW 2 */}
-        <Box gridColumn="span 8" gridRow="span 2" backgroundColor={"#363646"}>
+        <Box gridColumn="span 12" gridRow="span 2" backgroundColor={"#363646"}>
           <Box
             mt="25px"
             p="0 30px"
@@ -145,70 +145,13 @@ const Dashboard = () => {
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                ~170,048 💀
+                ~170,048
               </Typography>
-            </Box>
-            <Box>
-              <IconButton>
-                <DownloadOutlinedIcon
-                  sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
-                />
-              </IconButton>
             </Box>
           </Box>
           <Box height="250px" m="-20px 0 0 0">
             <LineChart isDashboard={true} />
           </Box>
-        </Box>
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={"#363646"}
-          overflow="auto"
-        >
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
-            colors={colors.grey[100]}
-            p="15px"
-          >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Donate
-            </Typography>
-          </Box>
-          {mockTransactions.map((transaction, i) => (
-            <Box
-              key={`${transaction.txId}-${i}`}
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              borderBottom={`4px solid ${colors.primary[500]}`}
-              p="15px"
-            >
-              <Box>
-                <Typography
-                  color={colors.greenAccent[500]}
-                  variant="h5"
-                  fontWeight="600"
-                >
-                  {transaction.txId}
-                </Typography>
-                <Typography color={colors.grey[100]}>
-                  {transaction.user}
-                </Typography>
-              </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
-              <Box
-                backgroundColor={colors.greenAccent[500]}
-                p="5px 10px"
-                borderRadius="4px"
-              >
-                ${transaction.cost}
-              </Box>
-            </Box>
-          ))}
         </Box>
 
         {/* ROW 3 */}
@@ -245,7 +188,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ padding: "30px 30px 0 30px" }}
           >
-            Diarrhea & GPD per capita
+            Scatter Plot 
           </Typography>
           <Box height="250px" mt="-20px" backgroundColor={"#363646"}>
             <ScatterPlot isDashboard={true} />

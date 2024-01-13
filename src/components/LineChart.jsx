@@ -4,7 +4,7 @@ import { tokens } from '../theme';
 import { ResponsiveLine } from '@nivo/line';
 import Data from './Data';
 
-const LineChart = ({isDashboard}) => {
+const LineChart = ({isDashboard = false,rangeMax = 150000}) => {
   const filePath ='./combined_data.csv';
   const formattedData = Data({filePath});
   const theme = useTheme();
@@ -45,14 +45,14 @@ const LineChart = ({isDashboard}) => {
             },
           },
         }}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
-        xScale={{ type: 'point' }}
+        margin={{ top: 50, right: 250, bottom: 50, left: 70 }}
+        xScale={{ type: 'point'}}
         yScale={{
             type: 'linear',
             min: 'auto',
-            max: 'auto',
-            stacked: true,
-            reverse: false
+            max: rangeMax,
+            stacked: false,
+            reverse: false,
         }}
         yFormat=" >-.2f"
         axisTop={null}
@@ -63,18 +63,19 @@ const LineChart = ({isDashboard}) => {
             tickRotation: 0,
             legend: 'Year',
             legendOffset: 36,
-            legendPosition: 'middle'
+            legendPosition: 'middle',
+            tickValues: isDashboard ? [2000, 2019]: [2000, 2010, 2015, 2019],
         }}
         axisLeft={{
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
             legend: 'Deaths',
-            legendOffset: -40,
+            legendOffset: -60,
             legendPosition: 'middle'
         }}
-        pointSize={10}
-        pointColor={{ theme: 'background' }}
+        pointSize={isDashboard ? 5: 10}
+        pointColor={{ from: 'color', modifiers: [] }}
         pointBorderWidth={2}
         pointBorderColor={{ from: 'serieColor' }}
         pointLabelYOffset={-12}

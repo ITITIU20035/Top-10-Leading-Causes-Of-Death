@@ -8,7 +8,7 @@ import Dashboard from "./scenes/dashboard";
 import Line from "./scenes/line";
 import Bar from "./scenes/bar";
 import Scatter from "./scenes/scatter";
-// import Dashboard from "./scenes/dashboard";
+import Geography from "./scenes/geography";
 // import Dashboard from "./scenes/dashboard";
 
 function App() {
@@ -28,6 +28,7 @@ function App() {
               <Route path="/line" element={<Line />} />
               <Route path="/bar" element={<Bar />} />
               <Route path="/scatter" element={<Scatter />} />
+              <Route path="/geography" element={<Geography />} />
             </Routes>
           </main>
         </div>

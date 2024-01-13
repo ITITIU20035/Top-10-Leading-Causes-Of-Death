@@ -4,7 +4,7 @@ import Data from "./Data";
 import { useTheme } from '@mui/material';
 import { tokens } from '../theme';
 
-const ScatterPlot = () => {
+const ScatterPlot = ({isDashboard = false}) => {
     const filePath ='./combined_data.csv';
     const formattedData = Data({filePath});
     const theme = useTheme();
@@ -62,7 +62,7 @@ const ScatterPlot = () => {
         legend: 'Year',
         legendPosition: 'middle',
         legendOffset: 46,
-        tickValues: [2000, 2010, 2015, 2019], // Specify available years
+        tickValues: isDashboard ? [2000, 2019]: [2000, 2010, 2015, 2019], // Specify available years
       }}
       axisLeft={{
         orient: 'left',
