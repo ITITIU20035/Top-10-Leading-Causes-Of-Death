@@ -5,7 +5,7 @@ import ScatterPlot from "../../components/ScatterPlot";
 const Scatter = () => {
   return (
     <Box m="20px">
-      <Header title="Line Chart" subtitle="Top 10 Leading Causes Of Death in Vietnam" />
+      <Header title="Scatter Chart" subtitle="Top 10 Leading Causes Of Death in Vietnam" />
       <Box height="75vh">
         <ScatterPlot />
       </Box>

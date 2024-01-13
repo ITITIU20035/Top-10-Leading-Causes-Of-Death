@@ -9,11 +9,42 @@ const ScatterPlot = () => {
     const formattedData = Data({filePath});
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
-
-
   return (
     <ResponsiveScatterPlot
       data={formattedData}
+      theme={{
+        axis:{
+          domain:{
+            line:{
+              stroke:colors.grey[100]
+            }
+          },
+          legend:{
+            text:{
+              fill: colors.grey[100]
+            }
+          },
+          ticks:{
+            lines:{
+              stroke: colors.grey[100],
+              strokeWidth: 1
+            },
+            text:{
+              fill: colors.grey[100]
+            }
+          }
+        },
+        legends:{
+          text:{
+            fill: colors.grey[100]
+          }
+        },
+        tooltip:{
+          container:{
+            color: colors.primary[500],
+          },
+        },
+      }}
       margin={{ top: 60, right: 140, bottom: 70, left: 90 }}
       xScale={{ type: 'linear', min: 2000, max: 'auto' }}
       xFormat=">-.2f"
