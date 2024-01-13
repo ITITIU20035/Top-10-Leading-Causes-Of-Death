@@ -4,7 +4,7 @@ import { tokens } from '../theme';
 import { ResponsiveLine } from '@nivo/line';
 import Data from './Data';
 
-const LineChart = ({isDashboard = false,rangeMax = 150000}) => {
+const LineChart = ({isDashboard = false,rangeMax}) => {
   const filePath ='./combined_data.csv';
   const formattedData = Data({filePath});
   const theme = useTheme();

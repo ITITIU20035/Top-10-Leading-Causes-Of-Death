@@ -4,7 +4,7 @@ import LineChart from "../../components/LineChart";
 import{useState} from 'react';
 
 const Line = () => {
-  const [rangeMax, setRangeMax] = useState(2019);
+  const [rangeMax, setRangeMax] = useState(150000);
 
   const handleRangeChange = (event) => {
     // Update selectedRange based on the range input value
@@ -16,13 +16,13 @@ const Line = () => {
       <Box height="75vh">
         <LineChart rangeMax={rangeMax}/>
         <input
-        type="range"
-        min="0"
-        max="200000"
-        step="1"
-        value={rangeMax}
-        onChange={handleRangeChange}
-      />
+          type="range"
+          min="0"
+          max="200000"
+          step="1"
+          value={rangeMax}
+          onChange={handleRangeChange}
+        />
       </Box>
     </Box>
   );
