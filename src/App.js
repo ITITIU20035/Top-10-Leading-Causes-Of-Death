@@ -24,7 +24,7 @@ function App() {
           <main className="content">
             <Topbar/>
             <Routes>
-              {/* <Route path="/" element={<Dashboard />} /> */}
+              <Route path="/" element={<Dashboard />} />
               <Route path="/line" element={<Line />} />
               <Route path="/bar" element={<Bar />} />
               <Route path="/scatter" element={<Scatter />} />
