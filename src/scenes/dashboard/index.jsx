@@ -165,11 +165,11 @@ const Dashboard = () => {
             variant="h5"
             ariant="h5"
             fontWeight="600"
-            sx={{ padding: "30px 30px 0 30px" }}
+            sx={{ padding: "0px 30px 0 10px" }}
           >
             Bar Chart
           </Typography>
-          <Box height="250px" mt="-20px" backgroundColor={"#363646"}>
+          <Box height="250px" mt="-30px" backgroundColor={"#363646"}>
             <BarChart isDashboard={true} />
           </Box>
         </Box>
