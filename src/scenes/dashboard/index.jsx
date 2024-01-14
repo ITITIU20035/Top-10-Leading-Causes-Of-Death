@@ -147,24 +147,18 @@ const Dashboard = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          p="15px"
+          backgroundColor={"#363646"}
+          p="30px"
         >
           <Typography
             variant="h5"
             ariant="h5"
             fontWeight="600"
-
-            sx={{ padding: "20px 30px 0 10px" }}
-          >
-            Bar Chart
-          </Typography>
-          <Box height="270px" mt="-40px"  backgroundColor={colors.primary[400]}>
             sx={{ padding: "0px 30px 0 10px" }}
           >
             Bar Chart
           </Typography>
-          <Box height="250px" mt="-40px" backgroundColor={"#363646"}>
+          <Box height="250px" mt="-30px" backgroundColor={"#363646"}>
             <BarChart isDashboard={true} />
           </Box>
         </Box>
