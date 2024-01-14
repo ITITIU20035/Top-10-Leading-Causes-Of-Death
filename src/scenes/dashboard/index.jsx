@@ -1,7 +1,5 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import { mockTransactions } from "../../data/mockData";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import AccessibilityIcon from "@mui/icons-material/Accessibility";
 import GroupRemoveIcon from '@mui/icons-material/GroupRemove';
 import MoodBadIcon from '@mui/icons-material/MoodBad';
