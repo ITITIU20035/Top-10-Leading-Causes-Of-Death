@@ -161,24 +161,16 @@ const Dashboard = () => {
           backgroundColor={"#363646"}
           p="30px"
         >
-          <Typography variant="h5" fontWeight="600">
-            Medical Improvement
-          </Typography>
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            mt="25px"
+          <Typography
+            variant="h5"
+            ariant="h5"
+            fontWeight="600"
+            sx={{ padding: "30px 30px 0 30px" }}
           >
+            Bar Chart
+          </Typography>
+          <Box height="250px" mt="-20px" backgroundColor={"#363646"}>
             <BarChart isDashboard={true} />
-            <Typography
-              variant="h5"
-              color={colors.greenAccent[500]}
-              sx={{ mt: "15px" }}
-            >
-              70% after 5 Years of Diagnosis
-            </Typography>
-            <Typography>Survival Rate of a Specific Stage of Stomach Cancer</Typography>
           </Box>
         </Box>
         <Box gridColumn="span 4" gridRow="span 2" backgroundColor={"#363646"}>

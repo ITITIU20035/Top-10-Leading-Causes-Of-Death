@@ -4,7 +4,7 @@ import Data from './BarChartData';
 import { useTheme } from '@mui/material';
 import { tokens } from '../theme';
 
-const BarChart = (isDashboard= false) => {
+const BarChart = () => {
     const filePath ='./combined_data.csv';
     const formattedData = Data({filePath});
     const theme = useTheme();
