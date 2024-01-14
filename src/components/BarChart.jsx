@@ -53,7 +53,7 @@ const BarChart = () => {
             '2019',
         ]}
         indexBy="Cause"
-        margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+        margin={{ top: 50, right: 130, bottom: 50, left: 200 }}
         padding={0.3}
         groupMode="grouped"
         layout="horizontal"
@@ -87,7 +87,7 @@ const BarChart = () => {
             tickRotation: 0,
             legend: 'Cause',
             legendPosition: 'middle',
-            legendOffset: -40,
+            legendOffset: -180,
             truncateTickAt: 0
         }}
         labelSkipWidth={12}

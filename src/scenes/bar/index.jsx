@@ -5,7 +5,7 @@ import BarChart from "../../components/BarChart";
 const Bar = () => {
   return (
     <Box m="20px">
-      <Header title="Line Chart" subtitle="Top 10 Leading Causes Of Death in Vietnam" />
+      <Header title="Bar Chart" subtitle="Top 10 Leading Causes Of Death in Vietnam" />
       <Box height="75vh">
         <BarChart />
       </Box>
