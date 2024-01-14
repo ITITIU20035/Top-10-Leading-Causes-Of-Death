@@ -76,7 +76,7 @@ const BarChart = () => {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'Cause',
+            legend: 'Number Of Death',
             legendPosition: 'middle',
             legendOffset: 32,
             truncateTickAt: 0
@@ -85,7 +85,7 @@ const BarChart = () => {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'food',
+            legend: 'Cause',
             legendPosition: 'middle',
             legendOffset: -40,
             truncateTickAt: 0
