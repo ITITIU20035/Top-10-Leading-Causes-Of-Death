@@ -4,7 +4,7 @@ import Data from './BarChartData';
 import { useTheme } from '@mui/material';
 import { tokens } from '../theme';
 
-const BarChart = () => {
+const BarChart = (isDashboard= false) => {
     const filePath ='./combined_data.csv';
     const formattedData = Data({filePath});
     const theme = useTheme();
@@ -53,7 +53,7 @@ const BarChart = () => {
             '2019',
         ]}
         indexBy="Cause"
-        margin={{ top: 50, right: 130, bottom: 50, left: 200 }}
+        margin={isDashboard ?{ top: 50, right: 10, bottom: 50, left: 160} :{ top: 50, right: 130, bottom: 50, left: 200 }}
         padding={0.3}
         groupMode="grouped"
         layout="horizontal"
@@ -104,13 +104,13 @@ const BarChart = () => {
         legends={[
             {
                 dataFrom: 'keys',
-                anchor: 'bottom-right',
-                direction: 'column',
+                anchor: isDashboard ? 'top':'bottom-right',
+                direction: isDashboard ? 'row':'column',
                 justify: false,
-                translateX: 120,
-                translateY: 0,
+                translateX: isDashboard ? -50: 120,
+                translateY: isDashboard ? -35: 0,
                 itemsSpacing: 2,
-                itemWidth: 100,
+                itemWidth: 55,
                 itemHeight: 20,
                 itemDirection: 'left-to-right',
                 itemOpacity: 0.85,
