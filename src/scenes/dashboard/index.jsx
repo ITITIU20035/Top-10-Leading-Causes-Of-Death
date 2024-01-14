@@ -22,20 +22,6 @@ const Dashboard = () => {
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Top 10 Leading Causes Of Death (Data Provided By WHO)" />
-        <Box>
-          <Button
-            sx={{
-              backgroundColor: "colors.blueAccent[500]",
-              color: colors.grey[100],
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-            }}
-          >
-            <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Reports
-          </Button>
-        </Box>
       </Box>
 
       {/* GRID & CHARTS */}
@@ -48,7 +34,7 @@ const Dashboard = () => {
         {/* ROW */}
         <Box
           gridColumn="span 3"
-          backgroundColor="#363646"
+          backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -67,7 +53,7 @@ const Dashboard = () => {
         </Box>
         <Box
           gridColumn="span 3"
-          backgroundColor={"#363646"}
+          backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -86,7 +72,7 @@ const Dashboard = () => {
         </Box>
         <Box
           gridColumn="span 3"
-          backgroundColor={"#363646"}
+          backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -105,7 +91,7 @@ const Dashboard = () => {
         </Box>
         <Box
           gridColumn="span 3"
-          backgroundColor={"#363646"}
+          backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -124,7 +110,7 @@ const Dashboard = () => {
         </Box>
 
         {/* ROW 2 */}
-        <Box gridColumn="span 12" gridRow="span 2" backgroundColor={"#363646"}>
+        <Box gridColumn="span 12" gridRow="span 2" backgroundColor={colors.primary[400]}>
           <Box
             mt="25px"
             p="0 30px"
@@ -132,11 +118,12 @@ const Dashboard = () => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Box>
+            <Box backgroundColor={colors.primary[400]}>
               <Typography
                 variant="h5"
                 fontWeight="600"
                 color={colors.grey[100]}
+                //  color={colors.primary[400]}
               >
                 Estimated fatal types:
               </Typography>
@@ -149,7 +136,9 @@ const Dashboard = () => {
               </Typography>
             </Box>
           </Box>
-          <Box height="250px" m="-20px 0 0 0">
+          <Box height="250px" m="-20px 0 0 0"
+            backgroundColor={colors.primary[400]}
+          >
             <LineChart isDashboard={true} />
           </Box>
         </Box>
@@ -158,22 +147,30 @@ const Dashboard = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 2"
-          backgroundColor={"#363646"}
-          p="30px"
+          backgroundColor={colors.primary[400]}
+          p="15px"
         >
           <Typography
             variant="h5"
             ariant="h5"
             fontWeight="600"
+
+            sx={{ padding: "20px 30px 0 10px" }}
+          >
+            Bar Chart
+          </Typography>
+          <Box height="270px" mt="-40px"  backgroundColor={colors.primary[400]}>
             sx={{ padding: "0px 30px 0 10px" }}
           >
             Bar Chart
           </Typography>
-          <Box height="250px" mt="-30px" backgroundColor={"#363646"}>
+          <Box height="250px" mt="-40px" backgroundColor={"#363646"}>
             <BarChart isDashboard={true} />
           </Box>
         </Box>
-        <Box gridColumn="span 4" gridRow="span 2" backgroundColor={"#363646"}>
+        
+        
+        <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]}>
           <Typography
             variant="h5"
             ariant="h5"
@@ -182,15 +179,18 @@ const Dashboard = () => {
           >
             Scatter Plot
           </Typography>
-          <Box height="250px" mt="-20px" backgroundColor={"#363646"}>
+          <Box height="250px" mt="-20px" backgroundColor={colors.primary[400]}>
             <ScatterPlot isDashboard={true} />
           </Box>
         </Box>
+        
+        
         <Box
           gridColumn="span 4"
           gridRow="span 2"
-          backgroundColor={"#363646"}
+          backgroundColor={colors.primary[400]}
           padding="30px"
+          
         >
           <Typography
             variant="h5"
@@ -199,7 +199,7 @@ const Dashboard = () => {
           >
             Geography Based Traffic
           </Typography>
-          <Box height="200px">
+          <Box height="200px" backgroundColor={colors.primary[400]} >
             <GeographyChart isDashboard={true} />
           </Box>
         </Box>
