@@ -11,7 +11,7 @@ import LineChart from "../../components/LineChart";
 import GeographyChart from "../../components/GeographyChart";
 import ScatterPlot from "../../components/ScatterPlot";
 import StatBox from "../../components/StatBox";
-import ReactSunburst from "../../components/ProgressCircle";
+import BarChart from "../../components/BarChart";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -170,7 +170,7 @@ const Dashboard = () => {
             alignItems="center"
             mt="25px"
           >
-            <ReactSunburst size="150" />
+            <BarChart isDashboard={true} />
             <Typography
               variant="h5"
               color={colors.greenAccent[500]}
